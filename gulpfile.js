@@ -17,12 +17,13 @@ gulp.task('browser-sync', function() {
         }
     });
 });
+
 gulp.task('uglify', function(){
   gulp.src('js/other.js')
   .pipe(sourcemaps.init())
   .pipe(plumber())
   .pipe(uglify())
-  .pipe(concat('others.js'))
+  .pipe(concat('other.js'))
   .pipe(sourcemaps.write('.'))
   .pipe(gulp.dest('src/js/'))
   .pipe(browserSync.reload({stream: true})); // prompts a reload after compilation
@@ -54,7 +55,7 @@ gulp.task('image', () =>
 );
 
 
-gulp.task('watch', ['browser-sync', 'css', 'uglify'], function(){
+gulp.task('watch', ['browser-sync', 'css'], function(){
    console.log('Browser Sync fucked off MANUAL RELOAD');
   gulp.watch("css/*.css", ['css']);
   //gulp.watch("js/*.js" , ['uglify']);

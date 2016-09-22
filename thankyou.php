@@ -55,12 +55,28 @@ src="https://www.facebook.com/tr?id=374941405998342&ev=PageView&noscript=1"
 <!-- End Facebook Pixel Code -->
   </head>
 <body>
+<div id="fb-root"></div>
+
   <!-- container -->
-<nav class="navbar navbar-default">
-      <a class="navbar-brand" href="/">
-        <h1 class="logo"> Digitally Inspired Media </h1>
-      </a>
-</nav>
+  <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="/">
+      <h1 class="logo"> Digitally Inspired Media </h1>
+    </a>
+    <div class="burger-icon">
+      <span class="burger-menu">
+      </span>
+    </div>
+    <div class="menu-container">
+      <ul class="menu-list">
+        <li> <a href="http://digitallyinspiredmedia.com/#slider-section1">Home </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#aboutus-section"> About </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#what-we-do-section">Services </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#clients-section">Clients </a> </li>
+        <li> <a href="http://careers.digitallyinspiredmedia.com">Careers </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#contact-section">Contact </a> </li>
+      </ul>
+    </div>
+  </nav>
  <div class="thankyou-container">
   <p> Thankyou for applying </p>
   <div id="answers"> </div>

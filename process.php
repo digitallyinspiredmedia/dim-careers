@@ -76,8 +76,8 @@ $sql = "INSERT INTO form SET user_registered = NOW(), firstname = '$firstname', 
 //assign send name and email
 $name ="digitallyinspiredmedia";
 $email ="admin@digitallyinspiredmedia.com";
-$bbname ="career";
-$bcc ="career@digitallyinspiredmedia.com";
+$bbname ="careers";
+$bcc ="kavin@digitallyinspiredmedia.com";
 
 
 // check the data
@@ -85,7 +85,7 @@ if (mysqli_query($conn, $sql)) {
    
 
         $recipient = "$uemail";
-        $subject = "Thankyou for applying form '$position' @ digitallyinspiredmedia";
+        $subject = "Thankyou for applying for '$position' @ Digitally Inspired Media";
 
         // Build the email content.
         $email_content = "First Name : $firstname\n";
@@ -93,9 +93,10 @@ if (mysqli_query($conn, $sql)) {
         $email_content .= "Mobile : $mobile\n";
         $email_content .= "Email : $uemail\n";
         $email_content .= "Position: $position\n\n";
+        $email_content .= "Attachment: <a href='http://careers.digitallyinspiredmedia.com/resume/'$pdf'>$pdf</a>\n\n";
         
         $email_headers = "From: $name <$email>". "\r\n" .
-          "Reply-To: $name <$email>" . "\r\n" .
+          "Reply-To: $bbname <$bcc>" . "\r\n" .
           "Bcc: $bbname <$bcc>";
 
 

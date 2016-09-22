@@ -159,6 +159,7 @@ body{
   top: 0;
   width: 100%;
   z-index: 10;
+  padding: 0 76px;
 
 }
 .navbar h1.logo {
@@ -167,19 +168,24 @@ body{
     height: 64px;
     background: transparent url(../image/logo.png) no-repeat center center;
     margin-top: 3px;
-    margin: 0 auto;
+    float: left;
     background-size: cover;
+}
+.menu-container{
+    position: absolute;
+    right: 56px;
+    top: 23px;
 }
 .navbar li {
   display: inline-block;
-  margin-right: 30px;
 }
 .navbar li a{
   font-weight: 400;
   line-height: 1.4;
-  border-bottom: 4px solid transparent;
+  border-bottom: 1px solid transparent;
   color: #9e9f9e;
-  padding: 10px 0 2px;
+  padding: 10px;
+  font-size: 14px;
 }
 .navbar li:hover a,
 .navbar li:focus a,
@@ -397,9 +403,6 @@ iframe{
   background-position: -150px 0px;
 }
 
-
-
-
 /* footer */
 footer{
   padding: 10px;
@@ -428,6 +431,9 @@ footer{
   background-color: transparent;
   background-image:url(../image/social-icon.png);
   cursor: pointer;
+}
+.social-icon li a{
+  display: block;
 }
 .social-icon li:hover{
   background-image:url(../image/social-icon-active.png);
@@ -605,15 +611,37 @@ p.help-block {
   padding: 10%;
   background-color: #fff;
 }
-
+#messageBox li{
+  color: #ff0000;
+}
+.error{
+  color: #ff0000;
+}
+.burger-icon{
+  display: none;
+}
 
 
 @media(max-width: 900px){
    #opening article{
     width: calc(100% / 12 * 6 - 40px);
   }
+  .navbar{
+    padding: 0 20px;
+  }
+  .menu-container{
+    right: 20px;
+  }
 }
 @media(max-width: 768px){
+  .navbar h1.logo {
+    width: 200px;
+    background-size: contain;
+  }
+  .navbar li a{
+    font-size: 13px;
+    padding: 10px;
+  }
   iframe{
     width: 100%;
   }
@@ -650,7 +678,141 @@ p.help-block {
     margin: 0 ;
   }
 }
+@media(max-width: 650px){
+  #scene .layer{
+    width: 250px;
+  }
+  .one span, .two span, .three span, .four span, .five span, .six span{
+    background-size: contain;
+    width: 150px;
+    height: 150px;
+  }
+  body.active{
+    overflow: hidden;
+    padding-top: 0;
+  }
+  .navbar.navbar-default.active{
+      position: static;
+  }
+.burger-icon{
+  display: block;
+  position: relative;
+}
+.burger-menu,
+.burger-menu:after,
+.burger-menu:before{
+  position: fixed;
+  margin: 0 auto;
+  top: 38px;
+  right: 20px;
+  width: 16px;
+  height: 1px;
+  border-radius: 5px;
+  background-color: #000;
+   -webkit-transition: all 0.5s ease-in;
+    -moz-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+  z-index: 15;
+}
+.burger-menu:after{
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+.burger-menu:before{
+  content: " ";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 0;
+}
+.burger-menu.active{
+  background: transparent;
+  -webkit-transition: all 0.6s ease-in;
+    -moz-transition: all 0.6s ease-in;
+    transition: all 0.6s ease-in;
+}
+.burger-menu.active:before{
+      -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+  top: 0;
+}
+.burger-menu.active:after{
+      -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  top: 0;
+}
+.menu-container{
+  height: 100vh;
+  width: 240px;
+  position: static;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  background-color: #fff;
+  visibility: hidden;
+  opacity: 0;
+    -webkit-transition: all 0.6s ease-in;
+    -moz-transition: all 0.6s ease-in;
+    transition: all 0.6s ease-in;
+  border-left: 1px solid #efefef;
+}
+.menu-container.active .menu-list{
+  position: relative;
+  top: 50px;
+}
+.menu-container.active{
+  visibility: visible;
+  opacity: 1;
+    -webkit-transition: all 0.6s ease-in;
+    -moz-transition: all 0.6s ease-in;
+    transition: all 0.6s ease-in;
+}
+.navbar li{
+  display: block;
+  position: static;
+  padding: 15px 22px;
+  font-size: 12px;
+}
+.navbar li a{
+  padding: 0;
+}
+
+}
 @media(max-width: 500px){
+  #scene .layer{
+    width: 150px;
+  }
+  .one span, .two span, .three span, .four span, .five span, .six span{
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+  }
+  .one span{
+    transform: translate3d( 0vw, -1vh, 10px);
+  }
+  .two span{
+    transform: translate3d( 6vw, 31vh, 50px);
+    width: 150px;
+    height: 150px;
+  }
+  .three span{
+    transform: translate3d( 20vw, 10vh, 200vh);
+  }
+  .four span{
+    transform: translate3d( 52vw, 8vh, 5vh);
+  }
+  .five span{
+    transform: translate3d( 54vw, 65vh, 5vh);
+  }
+  .six span{
+    transform: translate3d( 56vw, 33vh, 00px);
+  }
   .form-radio, .form-group{
     width: calc(100% / 12 * 12 - 0px)
   }

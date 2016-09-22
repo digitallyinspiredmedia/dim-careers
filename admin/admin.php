@@ -28,7 +28,7 @@ if ( mysqli_num_rows($result) >= 1) {
     
     while($row = mysqli_fetch_assoc($result)) {
       
-        header("Location: list.php");
+        header("Location: extract.php");
 
     }
 } else {

@@ -1,21 +1,12 @@
 $(function(){
-  
   $('.input-group input').focusout(function(){
-    
     var text_val = $(this).val();
-    
     if(text_val === "") {
-      
       $(this).removeClass('has-value');
-      
     } else {
-      
       $(this).addClass('has-value');
-      
     }
-    
   });
-  
 });
 
  $("#ajax-contact").validate({
@@ -34,12 +25,12 @@ $(function(){
                 digits: true
             },
          resume: {
-      		required: true,
-      		accept: "pdf/*"
+      		required: true
     		}
       },
        messages: {
-            name: "Please enter your name",
+            firstname: "Please enter your firstname",
+            lastname: "Please enter your lastname",
             email: {
                 required: "We need your email address to contact you",
                 email: "Your email address must be in the format of name@domain.com"
@@ -49,11 +40,7 @@ $(function(){
                 minlength: "Please enter 10 digit phone number",
                 maxlength: "Please enter 10 digit phone number"
             },
-            organization: {
-                required: "Please enter your organization"
-            },
-            servicetype: "Please enter your services",
-            message: "Please accept our message"
+            resume: "Please attach messages"
         },
         errorLabelContainer: "#messageBox",
         wrapper: "li",
@@ -95,6 +82,14 @@ jQuery(function() {
   });
   $('article').matchHeight();
    $('.apply-share').hide();
+   /* Burger menu active */
+$(".burger-icon").click(function(){
+    $(".burger-icon .burger-menu").toggleClass("active");
+    $(".menu-container").toggleClass("active");
+    $("body").toggleClass("active");
+    $(".navbar.navbar-default").toggleClass("active");
+  });
+
 });
 
 $('.apply-share').hover(function(e){ 

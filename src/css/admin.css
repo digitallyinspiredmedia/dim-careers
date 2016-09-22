@@ -1,0 +1,42 @@
+.extract{
+	padding: 10px;
+	margin: 10px;
+	width: calc(100% - 20px);
+}
+table{	    
+    font-size: 14px;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #69c;
+    margin: 20px;
+    vertical-align: middle;
+}
+table th {
+    font-weight: normal;
+    font-size: 14px;
+    color: #039;
+    padding: 10px 17px;
+    vertical-align: middle;
+}
+table tr {
+	margin: 5px 0;
+	vertical-align: middle;
+}
+thead{
+	 border-bottom: 1px dashed #69c !important;
+}
+table td {
+    color: #669;
+    padding: 6px 17px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    vertical-align: middle;
+}
+table tr:hover,
+table tr:focus{
+    color: #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+    background-color: #efefef;
+}

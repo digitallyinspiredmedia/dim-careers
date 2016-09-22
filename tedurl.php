@@ -31,14 +31,30 @@
 -->
   </head>
 <body>
+<div id="fb-root"></div>
+
   <!-- container -->
-<nav class="navbar navbar-default">
-      <a class="navbar-brand" href="/">
-        <h1 class="logo"> Digitally Inspired Media </h1>
-      </a>
-</nav>
+  <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="/">
+      <h1 class="logo"> Digitally Inspired Media </h1>
+    </a>
+    <div class="burger-icon">
+      <span class="burger-menu">
+      </span>
+    </div>
+    <div class="menu-container">
+      <ul class="menu-list">
+        <li> <a href="http://digitallyinspiredmedia.com/#slider-section1">Home </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#aboutus-section"> About </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#what-we-do-section">Services </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#clients-section">Clients </a> </li>
+        <li> <a href="http://careers.digitallyinspiredmedia.com">Careers </a> </li>
+        <li> <a href="http://digitallyinspiredmedia.com/#contact-section">Contact </a> </li>
+      </ul>
+    </div>
+  </nav>
  <div class="logincontainer">
-<form action="admin/admin.php" id="ajax-contact" method="post" autocomplete="off" enctype="multipart/form-data">
+<form action="admin/admin.php" id="ajax-contacts" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <div class="input-group">
               <input type="email" class="form-control" name="email" id="email" required="required"/>
@@ -58,24 +74,8 @@
           <button type="submit" class="button"><span>Submit</span></button>
         </div>
       </form> 
-      <div id="answers">
-       <table>
-    <tr>
-        <th>id</th>
-        <th>firstname</th>
-        <th>lastname</th>
-        <th>email</th>
-        <th>mobile</th>
-        <th>url</th>
-        <th>user_registered</th>
-        <th>pdf</th>
-        <th>user_status</th>
-        <th>position</th>
-    </tr>
-</table>
-
-
-      </div>
+      <ul id="fuck"> </ul>
+      
 </div>
    <!-- footer -->
       <footer>
@@ -83,31 +83,31 @@
         <div class="social-link">
           <ul class="social-icon">
             <li class="facebook">
-              <a href="#" >Facebook</a>
+              <a href="https://www.facebook.com/DigitallyInspiredMedia" >Facebook</a>
             </li>
             <li class="google">
-              <a href="#" >Google Plus</a>
+              <a href="https://plus.google.com/+DigitallyInspiredMedia" >Google Plus</a>
             </li>
             <li class="twitter">
-              <a href="#" >Twitter</a>
+              <a href="https://twitter.com/digital_inspire" >Twitter</a>
             </li>
             <li class="behance">
-              <a href="#" >Behance</a>
+              <a href="https://www.behance.net/digitallyinspired" >Behance</a>
             </li>
            <li class="youtube">
-              <a href="#" >Youtube</a>
+              <a href="https://www.youtube.com/user/DigitallyInspiredTV" >Youtube</a>
             </li>
             <li class="medium">
-              <a href="#" >Medium</a>
+              <a href="https://medium.com/@digitallyinspiredmedia" >Medium</a>
             </li>
             <li class="instagram">
-              <a href="#" >Instagram</a>
+              <a href="https://www.instagram.com/digitallyinspiredmedia_/" >Instagram</a>
             </li>
             <li class="linkedin">
-              <a href="#" >Linkedin</a>
+              <a href="https://www.linkedin.com/company/2634160" >Linkedin</a>
             </li>
             <li class="pinterest">
-              <a href="#" >Pintrest</a>
+              <a href="https://in.pinterest.com/digitalinspire/" >Pintrest</a>
             </li>
           </ul>
         </div>
@@ -122,25 +122,16 @@
 <script src="src/js/other.js"></script>
 <script type="text/javascript">
   
-$(document).ready(function () {
-    var json =  file_get_contents("http://careers.digitallyinspiredmedia.com/admin/list.php");
-        var tr;
-        for (var i = 0; i < json.length; i++) {
-            tr = $('<tr/>');
-            tr.append("<td>" + json[i].id + "</td>");
-            tr.append("<td>" + json[i].firstname + "</td>");
-            tr.append("<td>" + json[i].lastname + "</td>");
-            tr.append("<td>" + json[i].email + "</td>");
-            tr.append("<td>" + json[i].mobile + "</td>");
-            tr.append("<td>" + json[i].url + "</td>");
-            tr.append("<td>" + json[i].user_registered + "</td>");
-            tr.append("<td>" + json[i].pdf + "</td>");
-            tr.append("<td>" + json[i].user_status + "</td>");
-            tr.append("<td>" + json[i].position + "</td>");
-            $('table').append(tr);
-        }
+$(document).ready( function(){
+  $.getJSON("admin/extract.php", function(data){
+    $("ul").empty();
+    $.each(data.result, function(){
+      $("ul").append(
+        "<li>Id:"+this['ID']+"</li><br><li>firstname:"+this['firstname']+"</li><br><li>lastname:"+this['lastname']+"</li><br><li>email:"+this['email']+"</li><br><li>url:"+this['url']+"</li><br><li>user_registered:"+this['user_registered']+"</li><br><li>pdf:"+this['pdf']+"</li><br><li>user_status:"+this['user_status']+"</li><br><li>position:"+this['position']+"</li><br"
+        );
     });
-
+  });
+});
 </script>
   </body>
 </html>

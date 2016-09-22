@@ -21,21 +21,27 @@ $uemail = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
 $password = $_POST['password'];
 
 //process data
-$sql = "SELECT * FROM form WHERE pdf IS NOT NULL ORDER BY user_registered";
+$sql = "SELECT * FROM form ORDER BY user_registered";
 $result = mysqli_query($conn, $sql);
 
-if ( mysqli_num_rows($result) >= 1) {
-    
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
-      
-         $json_output[] = $row;
-
-    echo json_encode($json_output);
-
-
+        echo
+     "- id: " . $row["ID"]. "
+      - Name: " . $row["firstname"]. " 
+      - Last Name " . $row["lastname"]. "
+      - Email" . $row["email"]. "
+      - Mobile" . $row["mobile"]. "
+      - url" . $row["url"]. "
+      - pdf" . $row["pdf"]. "
+      - user_status" . $row["user_status"]. "
+      - position" . $row["position"]. "
+      - user_registered" . $row["user_registered"]. "
+     <br>";
     }
 } else {
-    header("Location: error.php");
+    echo "0 results";
 }
 
 
